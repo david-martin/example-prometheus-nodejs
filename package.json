@@ -27,7 +27,6 @@
     "node",
     "prometheus"
   ],
-  "author": "RisingStack, Inc.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/RisingStack/example-prometheus-nodejs/issues"
