@@ -7,13 +7,13 @@ objects:
   kind: DeploymentConfig
   metadata:
     labels:
-      application: example-prometheus-nodejs
+      app: example-prometheus-nodejs
     name: example-prometheus-nodejs
   spec:
     replicas: 1
     revisionHistoryLimit: 10
     selector:
-      application: example-prometheus-nodejs
+      app: example-prometheus-nodejs
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -28,7 +28,7 @@ objects:
       metadata:
         creationTimestamp: null
         labels:
-          application: example-prometheus-nodejs
+          app: example-prometheus-nodejs
       spec:
         containers:
         - image: docker.io/davidmartin/example-prometheus-nodejs:1.0.0
@@ -50,7 +50,7 @@ objects:
   kind: Service
   metadata:
     labels:
-      application: example-prometheus-nodejs
+      app: example-prometheus-nodejs
     name: example-prometheus-nodejs
   spec:
     ports:
@@ -59,14 +59,14 @@ objects:
       protocol: TCP
       targetPort: 3001
     selector:
-      application: example-prometheus-nodejs
+      app: example-prometheus-nodejs
     sessionAffinity: None
     type: ClusterIP
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     labels:
-      application: example-prometheus-nodejs
+      app: example-prometheus-nodejs
     name: example-prometheus-nodejs
   spec:
     port:
@@ -88,7 +88,7 @@ objects:
         port: api
     selector:
       matchLabels:
-        application: example-prometheus-nodejs
+        app: example-prometheus-nodejs
 - apiVersion: monitoring.coreos.com/v1
   kind: PrometheusRule
   metadata:
